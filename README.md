@@ -1,4 +1,22 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My Portfolio
+
+Welcome to my portfolio website! This is a modern, responsive portfolio built with Next.js and deployed on GitHub Pages.
+
+## Features
+
+- Responsive design
+- Modern UI with animations
+- Dark mode support
+- Optimized performance
+- SEO friendly
+
+## Technologies Used
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- CSS Modules
+- GitHub Pages
 
 ## Getting Started
 
