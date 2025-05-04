@@ -4,8 +4,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/stylianos',
-  assetPrefix: '/stylianos/',
+  basePath: process.env.NODE_ENV === 'production' ? '/stylianos' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/stylianos/' : '',
+  trailingSlash: true,
 }
 
 export default nextConfig
