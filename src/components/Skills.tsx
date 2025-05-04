@@ -1,35 +1,29 @@
 export default function Skills() {
   const skills = {
-    "Frontend Development": [
-      { name: "React", level: 90 },
-      { name: "Next.js", level: 85 },
-      { name: "TypeScript", level: 85 },
-      { name: "Tailwind CSS", level: 90 },
-      { name: "HTML/CSS", level: 95 },
+    "Web Development": [
+      { name: "React", level: 70 },
+      { name: "Next.js", level: 65 },
+      { name: "TypeScript", level: 60 },
+      { name: "HTML", level: 75 },
+      { name: "CSS", level: 75 },
+      { name: "Tailwind", level: 70 },
     ],
-    "Backend Development": [
-      { name: "Node.js", level: 85 },
-      { name: "Python", level: 80 },
-      { name: "Express", level: 85 },
-      { name: "RESTful APIs", level: 90 },
-      { name: "GraphQL", level: 75 },
-    ],
-    "Database & Tools": [
-      { name: "MongoDB", level: 85 },
-      { name: "PostgreSQL", level: 80 },
-      { name: "Redis", level: 75 },
-      { name: "Docker", level: 80 },
-      { name: "Git", level: 90 },
+    "Programming & Data": [
+      { name: "C", level: 80 },
+      { name: "C++", level: 75 },
+      { name: "Python", level: 70 },
+      { name: "SQL", level: 65 },
+      { name: "Tableau", level: 60 },
     ],
   };
 
   return (
     <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-800/50">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-12 text-center">
+        <h2 className="text-3xl font-bold mb-12 text-center bg-gradient-to-r from-blue-600 to-teal-400 bg-clip-text text-transparent">
           Technical Skills
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 gap-8">
           {Object.entries(skills).map(([category, categorySkills]) => (
             <div
               key={category}
