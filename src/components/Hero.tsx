@@ -8,15 +8,15 @@ export default function Hero() {
       <div className="grid lg:grid-cols-2 gap-8 items-center">
         <div className="space-y-8 text-center lg:text-left">
           <h1 className="text-4xl lg:text-6xl font-bold">
-            Hi, I'm <span className={styles.gradientText}>Stelios</span>
+            Hi, I&apos;m <span className={styles.gradientText}>Stelios</span>
           </h1>
           <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300">
             Data Scientist & Web Developer enthusiast
           </p>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
-            I'm a data scientist and web developer enthusiast with a passion for
-            creating innovative solutions. Optimizing processes and building
-            efficient systems is my jam.
+            I&apos;m a data scientist and web developer enthusiast with a
+            passion for creating innovative solutions. Optimizing processes and
+            building efficient systems is my jam.
           </p>
           <div className="flex gap-4 justify-center lg:justify-start">
             <Link

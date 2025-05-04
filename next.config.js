@@ -1,14 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-    ],
-  },
   output: 'export',
+  basePath: process.env.NODE_ENV === 'production' ? '/stylianos' : '',
+  images: {
+    unoptimized: true,
+  },
 }
 
 module.exports = nextConfig 

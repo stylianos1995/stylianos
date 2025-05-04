@@ -1,5 +1,3 @@
-import { ImageExample } from "./ImageExample";
-
 export const About = () => {
   return (
     <section id="about" className="py-20 bg-gray-50 dark:bg-gray-900">
@@ -29,12 +27,12 @@ export const About = () => {
                 <span className="mr-2">💻</span> Web Development Journey
               </h3>
               <p className="text-gray-600 dark:text-gray-300">
-                As a junior web developer, I'm building my expertise in modern
-                web technologies. I'm currently working with React, Next.js, and
-                TypeScript to create responsive and user-friendly applications.
-                My background in Physics and data science provides me with a
-                unique perspective on problem-solving and analytical thinking in
-                web development.
+                As a junior web developer, I&apos;m building my expertise in
+                modern web technologies. I&apos;m currently working with React,
+                Next.js, and TypeScript to create responsive and user-friendly
+                applications. My background in Physics and data science provides
+                me with a unique perspective on problem-solving and analytical
+                thinking in web development.
               </p>
             </div>
 
