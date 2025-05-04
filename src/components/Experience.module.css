@@ -1,0 +1,72 @@
+.timeline {
+  position: relative;
+}
+
+.timelineLine {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(to bottom, #3b82f6, #2dd4bf);
+}
+
+.timelineDot {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #3b82f6;
+  border: 4px solid white;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+  transition: all 0.3s ease;
+}
+
+.timelineDot:hover {
+  transform: translateX(-50%) scale(1.2);
+  box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.3);
+}
+
+.experienceCard {
+  transition: all 0.3s ease;
+  animation: slideIn 0.5s ease-out;
+}
+
+.experienceCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.experienceItem {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.experienceItem::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: #3b82f6;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.experienceItem:hover::before {
+  opacity: 1;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+} 
