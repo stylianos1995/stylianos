@@ -1,7 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
+
+// Initialize EmailJS
+emailjs.init("CtJ1AzouyQuN-xkuv");
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -14,30 +17,50 @@ export default function Contact() {
     submitting: false,
     submitted: false,
     error: false,
+    errorMessage: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus({ submitting: true, submitted: false, error: false });
+    setStatus({
+      submitting: true,
+      submitted: false,
+      error: false,
+      errorMessage: "",
+    });
 
     try {
-      await emailjs.send(
-        "YOUR_SERVICE_ID", // Replace with your EmailJS service ID
-        "YOUR_TEMPLATE_ID", // Replace with your EmailJS template ID
+      const result = await emailjs.send(
+        "service_victnd5", // Your EmailJS service ID
+        "template_x7cn9fe", // Your EmailJS template ID
         {
-          from_name: formData.name,
-          from_email: formData.email,
+          name: formData.name,
+          email: formData.email,
           message: formData.message,
-          to_name: "Stylianos",
-        },
-        "YOUR_PUBLIC_KEY" // Replace with your EmailJS public key
+          time: new Date().toLocaleString(),
+          reply_to: formData.email,
+        }
       );
 
-      setStatus({ submitting: false, submitted: true, error: false });
-      setFormData({ name: "", email: "", message: "" });
+      if (result.status === 200) {
+        setStatus({
+          submitting: false,
+          submitted: true,
+          error: false,
+          errorMessage: "",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        throw new Error("Failed to send email");
+      }
     } catch (error) {
       console.error("Error sending email:", error);
-      setStatus({ submitting: false, submitted: false, error: true });
+      setStatus({
+        submitting: false,
+        submitted: false,
+        error: true,
+        errorMessage: "Failed to send message. Please try again later.",
+      });
     }
   };
 
@@ -231,8 +254,7 @@ export default function Contact() {
             )}
             {status.error && (
               <p className="text-red-600 dark:text-red-400 text-center">
-                Sorry, there was an error sending your message. Please try
-                again.
+                {status.errorMessage}
               </p>
             )}
           </form>
