@@ -12,12 +12,31 @@
 }
 
 .profileImage {
-  border: 4px solid white;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.profileImage::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  background: linear-gradient(135deg, #3b82f6, #14b8a6);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.profileImage img {
+  position: relative;
+  z-index: 1;
+  border: 4px solid rgba(59, 130, 246, 0.3);
   box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
   transition: transform 0.3s ease;
 }
 
-.profileImage:hover {
+.profileImage img:hover {
   transform: scale(1.05);
 }
 
