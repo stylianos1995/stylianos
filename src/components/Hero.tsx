@@ -1,8 +1,13 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Hero.module.css";
+import { useState } from "react";
 
 export default function Hero() {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <section className="min-h-screen flex items-center justify-center py-16 lg:py-32">
       <div className="grid lg:grid-cols-2 gap-8 items-center">
@@ -75,20 +80,26 @@ export default function Hero() {
             </a>
           </div>
         </div>
-        <div className="relative hidden lg:block">
-          <div className="w-72 h-72 relative mx-auto">
+        <div className="relative block lg:block">
+          <div className="w-48 h-48 lg:w-72 lg:h-72 relative mx-auto">
             <div className={styles.profileImage}>
               <div className="relative w-full h-full">
                 <Image
                   src={`${
                     process.env.NODE_ENV === "production" ? "/stylianos" : ""
                   }/images/stelios.jpg`}
-                  alt="Stelios"
+                  alt="Stelios Kalaitzis"
                   fill
-                  sizes="(max-width: 768px) 100vw, 288px"
-                  className="object-cover rounded-full"
+                  sizes="(max-width: 768px) 192px, 288px"
+                  className={`object-cover rounded-full transition-opacity duration-300 ${
+                    imageLoaded ? "opacity-100" : "opacity-0"
+                  }`}
                   priority
+                  onLoad={() => setImageLoaded(true)}
                 />
+                {!imageLoaded && (
+                  <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 rounded-full animate-pulse" />
+                )}
               </div>
             </div>
           </div>
