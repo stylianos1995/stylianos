@@ -59,7 +59,9 @@ export default function Hero() {
           <div className="w-72 h-72 relative mx-auto">
             <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-white dark:border-gray-800 shadow-lg">
               <Image
-                src="/images/stelios.jpg"
+                src={`${
+                  process.env.NODE_ENV === "production" ? "/stylianos" : ""
+                }/images/stelios.jpg`}
                 alt="Stelios"
                 fill
                 sizes="(max-width: 768px) 100vw, 288px"
