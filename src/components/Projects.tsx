@@ -10,6 +10,8 @@ type Project = {
 };
 
 export default function Projects() {
+  const basePath = process.env.NODE_ENV === "production" ? "/stylianos" : "";
+
   const projects: Project[] = [
     {
       title: "Portofino Digital Menu",
@@ -17,7 +19,7 @@ export default function Projects() {
         "QR-powered restaurant menu experience with multilingual support for easy access across devices.",
       technologies: ["Next.js", "Vercel", "Responsive Design"],
       liveUrl: "https://portofino-eight.vercel.app",
-      imageUrl: "/images/projects/portofino.png",
+      imageUrl: `${basePath}/images/projects/portofino.png`,
     },
     {
       title: "Illuminate",
@@ -25,7 +27,7 @@ export default function Projects() {
         "A focused brand website with clean visuals and calming presentation for a psychology service.",
       technologies: ["Web Design", "Brand Identity", "Responsive UI"],
       liveUrl: "https://illuminate-psy.com",
-      imageUrl: "/images/projects/illuminate.png",
+      imageUrl: `${basePath}/images/projects/illuminate.png`,
     },
     {
       title: "DeVerse",
@@ -33,7 +35,7 @@ export default function Projects() {
         "Agency landing page showcasing digital services, project highlights, and modern UI interactions.",
       technologies: ["React", "TypeScript", "Tailwind CSS"],
       liveUrl: "https://deverse-pi.vercel.app",
-      imageUrl: "/images/projects/deverse.png",
+      imageUrl: `${basePath}/images/projects/deverse.png`,
     },
   ];
 
