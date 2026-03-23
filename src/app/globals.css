@@ -23,6 +23,37 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  isolation: isolate;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 10% 10%, rgba(59, 130, 246, 0.12), transparent 35%),
+    radial-gradient(circle at 90% 80%, rgba(20, 184, 166, 0.1), transparent 40%),
+    linear-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.08) 1px, transparent 1px);
+  background-size: auto, auto, 42px 42px, 42px 42px;
+  background-position: center, center, 0 0, 0 0;
+  animation: cyberGridShift 30s linear infinite;
+}
+
+section,
+nav,
+header,
+footer,
+main {
+  position: relative;
+  z-index: 1;
+}
+
+section {
+  border-radius: 20px;
 }
 
 @tailwind base;
@@ -71,5 +102,20 @@ html {
   }
   50% {
     opacity: .5;
+  }
+}
+
+@keyframes cyberGridShift {
+  0% {
+    background-position: center, center, 0 0, 0 0;
+  }
+  100% {
+    background-position: center, center, 42px 42px, 42px 42px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
   }
 }

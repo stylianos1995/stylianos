@@ -9,7 +9,9 @@ export default function Hero() {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   return (
-    <section className="min-h-screen flex items-center justify-center py-16 lg:py-32">
+    <section
+      className={`min-h-screen flex items-center justify-center py-16 lg:py-32 bg-white dark:bg-gray-900 ${styles.heroSection}`}
+    >
       <div className="grid lg:grid-cols-2 gap-8 items-center">
         <div className="space-y-8 text-center lg:text-left">
           <h1 className="text-4xl lg:text-6xl font-bold">

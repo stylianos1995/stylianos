@@ -149,7 +149,7 @@ export default function Contact() {
                   />
                 </svg>
                 <span className="text-gray-600 dark:text-gray-300">
-                  +30 697 872 7021
+                  +31 617040768
                 </span>
               </div>
               <div className="flex items-center gap-4">

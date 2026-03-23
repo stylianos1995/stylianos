@@ -41,10 +41,11 @@ export const About = () => {
                 <span className="mr-2">📊</span> Data Science Enthusiast
               </h3>
               <p className="text-gray-600 dark:text-gray-300">
-                Currently, I am expanding my expertise through data science
-                courses with Workearly Greece, mastering Python, SQL, and
-                Tableau. These tools are essential for modern analytics and data
-                visualization, complementing my web development skills.
+                I am pursuing a BSc in Data Science & AI at Maastricht
+                University while expanding my practical expertise through data
+                science courses with Workearly Greece, mastering Python, SQL,
+                and Tableau. These tools are essential for modern analytics and
+                data visualization, complementing my web development skills.
               </p>
             </div>
           </div>

@@ -1,6 +1,41 @@
 .heroSection {
   position: relative;
   overflow: hidden;
+  isolation: isolate;
+}
+
+.heroSection::before,
+.heroSection::after {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.heroSection::before {
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(59, 130, 246, 0.16),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 80% 75%,
+      rgba(20, 184, 166, 0.14),
+      transparent 50%
+    );
+  animation: wallpaperDrift 18s ease-in-out infinite alternate;
+}
+
+.heroSection::after {
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(59, 130, 246, 0.08) 50%,
+    transparent 100%
+  );
+  filter: blur(24px);
+  animation: wallpaperSweep 22s linear infinite;
 }
 
 .gradientText {
@@ -88,3 +123,32 @@
     transform: translate(-50%, -50%) scale(0.95);
   }
 } 
+
+@keyframes wallpaperDrift {
+  0% {
+    transform: translate3d(-1.5%, -1%, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(1.5%, 1.5%, 0) scale(1.03);
+  }
+  100% {
+    transform: translate3d(0.5%, -1%, 0) scale(1.01);
+  }
+}
+
+@keyframes wallpaperSweep {
+  0% {
+    transform: translateX(-12%);
+  }
+  100% {
+    transform: translateX(12%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gradientText,
+  .heroSection::before,
+  .heroSection::after {
+    animation: none;
+  }
+}
