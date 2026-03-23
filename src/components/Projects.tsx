@@ -1,28 +1,41 @@
+import Image from "next/image";
+
+type Project = {
+  title: string;
+  description: string;
+  technologies: string[];
+  liveUrl: string;
+  imageUrl: string;
+  githubUrl?: string;
+};
+
 export default function Projects() {
   const projects = [
     {
-      title: "Portfolio Website",
+      title: "Portofino Digital Menu",
       description:
-        "My personal portfolio website built with Next.js and Tailwind CSS. Features include dark mode, responsive design, and contact form integration.",
-      technologies: ["Next.js", "Tailwind CSS", "TypeScript", "EmailJS"],
-      liveUrl: "/under-construction",
-      githubUrl: "https://github.com/stylianos1995/stylianos",
+        "QR-powered restaurant menu experience with multilingual support for easy access across devices.",
+      technologies: ["Next.js", "Vercel", "Responsive Design"],
+      liveUrl: "https://portofino-eight.vercel.app",
+      imageUrl: "/images/projects/portofino.png",
     },
     {
-      title: "Project Two",
-      description: "Coming soon...",
-      technologies: ["React", "Node.js", "MongoDB"],
-      liveUrl: "/under-construction",
-      githubUrl: "https://github.com/stylianos1995",
+      title: "Illuminate",
+      description:
+        "A focused brand website with clean visuals and calming presentation for a psychology service.",
+      technologies: ["Web Design", "Brand Identity", "Responsive UI"],
+      liveUrl: "https://illuminate-psy.com",
+      imageUrl: "/images/projects/illuminate.png",
     },
     {
-      title: "Project Three",
-      description: "Coming soon...",
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
-      liveUrl: "/under-construction",
-      githubUrl: "https://github.com/stylianos1995",
+      title: "DeVerse",
+      description:
+        "Agency landing page showcasing digital services, project highlights, and modern UI interactions.",
+      technologies: ["React", "TypeScript", "Tailwind CSS"],
+      liveUrl: "https://deverse-pi.vercel.app",
+      imageUrl: "/images/projects/deverse.png",
     },
-  ];
+  ] satisfies Project[];
 
   return (
     <section id="projects" className="py-20">
@@ -36,8 +49,13 @@ export default function Projects() {
               key={index}
               className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform hover:scale-105"
             >
-              <div className="relative h-48 w-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-400">
-                Project Preview
+              <div className="relative h-48 w-full">
+                <Image
+                  src={project.imageUrl}
+                  alt={`${project.title} preview`}
+                  fill
+                  className="object-cover"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
@@ -57,18 +75,22 @@ export default function Projects() {
                 <div className="flex gap-4">
                   <a
                     href={project.liveUrl}
-                    className="flex-1 text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                  >
-                    Live Demo
-                  </a>
-                  <a
-                    href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 text-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:border-blue-500 dark:hover:border-blue-500 transition-colors"
+                    className="flex-1 text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                   >
-                    GitHub
+                    Visit Website
                   </a>
+                  {project.githubUrl ? (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 text-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:border-blue-500 dark:hover:border-blue-500 transition-colors"
+                    >
+                      GitHub
+                    </a>
+                  ) : null}
                 </div>
               </div>
             </div>
