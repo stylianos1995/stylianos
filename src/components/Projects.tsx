@@ -10,7 +10,7 @@ type Project = {
 };
 
 export default function Projects() {
-  const projects = [
+  const projects: Project[] = [
     {
       title: "Portofino Digital Menu",
       description:
@@ -35,7 +35,7 @@ export default function Projects() {
       liveUrl: "https://deverse-pi.vercel.app",
       imageUrl: "/images/projects/deverse.png",
     },
-  ] satisfies Project[];
+  ];
 
   return (
     <section id="projects" className="py-20">
