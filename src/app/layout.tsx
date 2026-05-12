@@ -3,48 +3,51 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import BackToTop from "@/components/BackToTop";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
+  themeColor: "#09090b",
 };
 
 export const metadata: Metadata = {
-  title: "Stelios Kalaitzis - Data Scientist & Web Developer",
+  metadataBase: new URL("https://stylianos1995.github.io/stylianos"),
+  title: "Stylianos Kalaitzis — Web Developer",
   description:
-    "Portfolio website of Stelios Kalaitzis, a Data Scientist and Web Developer based in Maastricht, Netherlands.",
+    "Web developer based in Maastricht, Netherlands. I build responsive web applications with React, JavaScript, Python, and modern frontend technologies.",
   keywords: [
-    "Data Scientist",
     "Web Developer",
-    "Portfolio",
     "React",
-    "Next.js",
+    "JavaScript",
     "TypeScript",
+    "Frontend",
+    "Maastricht",
+    "Portfolio",
   ],
-  authors: [{ name: "Stelios Kalaitzis" }],
+  authors: [{ name: "Stylianos Kalaitzis" }],
   openGraph: {
-    title: "Stelios Kalaitzis - Data Scientist & Web Developer",
+    title: "Stylianos Kalaitzis — Web Developer",
     description:
-      "Portfolio website of Stelios Kalaitzis, a Data Scientist and Web Developer based in Maastricht, Netherlands.",
+      "Web developer based in Maastricht. Responsive applications with React, JavaScript, and modern frontend tooling.",
     url: "https://stylianos1995.github.io/stylianos/",
-    siteName: "Stelios Kalaitzis Portfolio",
+    siteName: "Stylianos Kalaitzis",
     images: [
       {
         url: "/images/stelios.jpg",
         width: 800,
         height: 800,
-        alt: "Stelios Kalaitzis",
+        alt: "Stylianos Kalaitzis",
       },
     ],
-    locale: "en_US",
+    locale: "en_NL",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Stelios Kalaitzis - Data Scientist & Web Developer",
+    title: "Stylianos Kalaitzis — Web Developer",
     description:
-      "Portfolio website of Stelios Kalaitzis, a Data Scientist and Web Developer based in Maastricht, Netherlands.",
+      "Web developer based in Maastricht. React, JavaScript, Python, and modern frontend technologies.",
     images: ["/images/stelios.jpg"],
   },
   robots: {
@@ -59,8 +62,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} bg-white dark:bg-gray-900`}>
+    <html lang="en" className={`scroll-smooth dark ${inter.variable}`}>
+      <body
+        className={`${inter.className} min-h-screen bg-zinc-950 text-zinc-100 antialiased`}
+      >
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
