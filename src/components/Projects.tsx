@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { publicAsset } from "@/utils/publicAsset";
 
 type Project = {
   title: string;
@@ -8,8 +9,6 @@ type Project = {
   githubUrl: string;
   imageUrl: string;
 };
-
-const basePath = process.env.NODE_ENV === "production" ? "/stylianos" : "";
 
 const cardClass =
   "group flex flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40 shadow-sm transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-zinc-700 hover:shadow-lg hover:shadow-zinc-950/50";
@@ -29,7 +28,7 @@ export default function Projects() {
       technologies: ["Next.js", "React", "Vercel", "Responsive UI"],
       liveUrl: "https://portofino-eight.vercel.app",
       githubUrl: "https://github.com/stylianos1995",
-      imageUrl: `${basePath}/images/projects/portofino.png`,
+      imageUrl: publicAsset("/images/projects/portofino.png"),
     },
     {
       title: "Illuminate",
@@ -38,7 +37,7 @@ export default function Projects() {
       technologies: ["HTML", "CSS", "JavaScript", "Responsive layout"],
       liveUrl: "https://illuminate-psy.com",
       githubUrl: "https://github.com/stylianos1995",
-      imageUrl: `${basePath}/images/projects/illuminate.png`,
+      imageUrl: publicAsset("/images/projects/illuminate.png"),
     },
     {
       title: "DeVerse",
@@ -47,7 +46,7 @@ export default function Projects() {
       technologies: ["React", "TypeScript", "Tailwind CSS"],
       liveUrl: "https://deverse-pi.vercel.app",
       githubUrl: "https://github.com/stylianos1995",
-      imageUrl: `${basePath}/images/projects/deverse.png`,
+      imageUrl: publicAsset("/images/projects/deverse.png"),
     },
   ];
 

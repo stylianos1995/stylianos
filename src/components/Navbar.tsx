@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 
 const navLinkClass =
   "rounded-md px-3 py-2 text-sm font-medium text-zinc-400 transition-colors hover:text-zinc-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500";
@@ -23,18 +22,18 @@ export default function Navbar() {
         className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8"
         aria-label="Primary"
       >
-        <Link
+        <a
           href="#home"
           className="text-sm font-semibold tracking-tight text-zinc-100 transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500 sm:text-base"
         >
           Stylianos Kalaitzis
-        </Link>
+        </a>
 
         <div className="hidden items-center gap-1 md:flex">
           {menuItems.map((item) => (
-            <Link key={item.href} href={item.href} className={navLinkClass}>
+            <a key={item.href} href={item.href} className={navLinkClass}>
               {item.label}
-            </Link>
+            </a>
           ))}
         </div>
 
@@ -79,14 +78,14 @@ export default function Navbar() {
         >
           <div className="flex flex-col gap-1">
             {menuItems.map((item) => (
-              <Link
+              <a
                 key={item.href}
                 href={item.href}
                 className={`${navLinkClass} block`}
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
-              </Link>
+              </a>
             ))}
           </div>
         </div>

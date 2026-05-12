@@ -1,10 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
-
-const basePath = process.env.NODE_ENV === "production" ? "/stylianos" : "";
+import { publicAsset } from "@/utils/publicAsset";
 
 const primaryBtn =
   "inline-flex items-center justify-center gap-2 rounded-full border border-zinc-600 bg-zinc-100 px-5 py-2.5 text-sm font-medium text-zinc-950 transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-400";
@@ -72,16 +70,16 @@ export default function Hero() {
               </svg>
               LinkedIn
             </a>
-            <Link href="#contact" className={primaryBtn}>
+            <a href="#contact" className={primaryBtn}>
               Contact
-            </Link>
+            </a>
           </div>
         </div>
 
         <div className="mx-auto w-full max-w-[280px] sm:max-w-xs lg:mx-0 lg:max-w-sm">
           <div className="relative aspect-square overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 shadow-[0_0_0_1px_rgba(255,255,255,0.04)]">
             <Image
-              src={`${basePath}/images/stelios.jpg`}
+              src={publicAsset("/images/stelios.jpg")}
               alt="Stylianos Kalaitzis"
               fill
               sizes="(max-width: 1024px) 320px, 384px"
