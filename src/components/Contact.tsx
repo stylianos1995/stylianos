@@ -2,11 +2,9 @@
 
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import { outlineButtonClass } from "@/lib/button-styles";
 
 emailjs.init("CtJ1AzouyQuN-xkuv");
-
-const outlineLink =
-  "inline-flex items-center justify-center gap-2 rounded-full border border-zinc-700 bg-zinc-900/60 px-5 py-2.5 text-sm font-medium text-zinc-100 transition-colors hover:border-zinc-500 hover:bg-zinc-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -113,10 +111,12 @@ export default function Contact() {
             href="https://github.com/stylianos1995"
             target="_blank"
             rel="noopener noreferrer"
-            className={outlineLink}
+            className={outlineButtonClass}
           >
             <svg
-              className="h-4 w-4 shrink-0"
+              className="icon-sm"
+              width={16}
+              height={16}
               fill="currentColor"
               viewBox="0 0 24 24"
               aria-hidden
@@ -129,10 +129,12 @@ export default function Contact() {
             href="https://www.linkedin.com/in/stylianos-kalaitzis-730902260/"
             target="_blank"
             rel="noopener noreferrer"
-            className={outlineLink}
+            className={outlineButtonClass}
           >
             <svg
-              className="h-4 w-4 shrink-0"
+              className="icon-sm"
+              width={16}
+              height={16}
               fill="currentColor"
               viewBox="0 0 24 24"
               aria-hidden
@@ -141,9 +143,11 @@ export default function Contact() {
             </svg>
             LinkedIn
           </a>
-          <a href="mailto:stylianos.kalaitzis95@gmail.com" className={outlineLink}>
+          <a href="mailto:stylianos.kalaitzis95@gmail.com" className={outlineButtonClass}>
             <svg
-              className="h-4 w-4 shrink-0"
+              className="icon-sm"
+              width={16}
+              height={16}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -177,7 +181,7 @@ export default function Contact() {
 
       <form
         onSubmit={handleSubmit}
-        className="mx-auto mt-16 max-w-2xl space-y-5 border-t border-zinc-800 pt-16"
+        className="mx-auto mt-16 max-w-2xl space-y-5 border-t border-slate-700/40 pt-16"
       >
         <h3 className="text-lg font-semibold text-zinc-100">Send a message</h3>
         <div>

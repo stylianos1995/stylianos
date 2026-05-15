@@ -1,16 +1,14 @@
 import Image from "next/image";
+import { outlineButtonClass } from "@/lib/button-styles";
 import { publicAsset } from "@/utils/publicAsset";
 
 const cvDownloadHref = publicAsset("/assets/Stylianos-Kalaitzis-CV.pdf");
-
-const downloadBtn =
-  "inline-flex items-center justify-center gap-2 rounded-full border border-zinc-700 bg-zinc-900/80 px-5 py-2.5 text-sm font-medium text-zinc-100 transition-colors hover:border-zinc-500 hover:bg-zinc-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-zinc-500";
 
 export const About = () => {
   return (
     <section
       id="about"
-      className="scroll-mt-24 border-b border-zinc-800/80 py-20 sm:py-24"
+      className="scroll-mt-24 border-b border-slate-700/40 py-20 sm:py-24"
       aria-labelledby="about-heading"
     >
       <div className="mx-auto max-w-6xl">
@@ -21,67 +19,93 @@ export const About = () => {
           About
         </h2>
 
-        <div className="mt-10 flex flex-col items-center gap-10 sm:flex-row sm:items-start sm:gap-12 lg:gap-16">
-          <div className="relative shrink-0">
-            <div className="relative h-40 w-40 overflow-hidden rounded-full border-2 border-zinc-700 bg-zinc-900 shadow-[0_0_0_1px_rgba(255,255,255,0.04)] sm:h-48 sm:w-48">
+        <div className="surface-panel mt-10 rounded-2xl p-6 backdrop-blur-sm sm:p-10">
+          <div className="flex flex-col items-center gap-10 sm:flex-row sm:items-start sm:gap-12 lg:gap-14">
+            <div className="shrink-0">
               <Image
                 src={publicAsset("/images/stelios.jpg")}
                 alt="Stylianos Kalaitzis"
-                fill
+                width={192}
+                height={192}
+                priority
                 sizes="(max-width: 640px) 160px, 192px"
-                className="object-cover"
+                className="profile-photo"
               />
             </div>
-          </div>
 
-          <div className="min-w-0 flex-1 space-y-6">
-            <p className="text-lg font-medium text-zinc-200 sm:text-xl">
-              Data Scientist · Web Developer · Physicist
-            </p>
-            <div className="space-y-5 text-lg leading-relaxed text-zinc-400 sm:text-xl">
-              <p>
-                I&apos;m a friendly, collaborative professional based in
-                Maastricht. I build modern, responsive web applications with
-                React, JavaScript, and Python, and I bring an analytical
-                mindset from physics and data science to every project.
-              </p>
-              <p>
-                I&apos;m pursuing a BSc in Data Science &amp; AI at Maastricht
-                University, with hands-on work in SQL, Python, and Tableau from
-                my time at Work Early in Athens. I also hold a BSc in Physics
-                from the University of Ioannina. I learn continuously, work well
-                in teams, and enjoy turning complex problems into clear,
-                user-friendly solutions.
-              </p>
-              <p>
-                Beyond development, I&apos;ve led hospitality teams, supported
-                travel clients with tailored bookings, and completed military
-                communications training with top performance—experiences that
-                sharpened my leadership, communication, and calm under pressure.
-              </p>
-            </div>
+            <div className="min-w-0 flex-1 space-y-6">
+              <div className="space-y-2">
+                <p className="text-xl font-semibold text-zinc-100 sm:text-2xl">
+                  Hi, I&apos;m Stylianos — nice to meet you!
+                </p>
+                <p className="text-base font-medium text-indigo-300/90 sm:text-lg">
+                  Data Scientist · Web Developer · Physicist
+                </p>
+                <p className="text-sm text-zinc-500">Based in Maastricht, Netherlands</p>
+              </div>
 
-            <a
-              href={cvDownloadHref}
-              download="Stylianos-Kalaitzis-CV.pdf"
-              className={downloadBtn}
-            >
-              <svg
-                className="h-4 w-4 shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden
+              <div className="space-y-4 text-base leading-relaxed text-zinc-300 sm:text-lg">
+                <p>
+                  I&apos;m a friendly, communicative person who genuinely enjoys
+                  working with others. I like bringing a positive attitude to the
+                  table, listening carefully, and helping teams stay motivated —
+                  whether we&apos;re shipping a web app or making someone&apos;s day
+                  a little brighter at work.
+                </p>
+                <p>
+                  I hold a BSc in Physics from the University of Ioannina and
+                  sharpened my data skills at Work Early in Athens, where I worked
+                  with SQL, Python, and Tableau on real projects. These days I
+                  build responsive sites and apps with React, JavaScript, and
+                  Python — you can explore my work on{" "}
+                  <a
+                    href="https://github.com/stylianos1995"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-indigo-300 underline decoration-indigo-500/40 underline-offset-2 transition-colors hover:text-indigo-200"
+                  >
+                    GitHub
+                  </a>
+                  .
+                </p>
+                <p>
+                  Outside of code, I&apos;m a staff manager at Lacasa Maastricht,
+                  where teamwork and a welcoming atmosphere matter every day.
+                  I&apos;ve also supported travellers at a travel agency, led
+                  hospitality teams in Greece and Cyprus, and trained in military
+                  communications — experiences that taught me leadership, empathy,
+                  and staying calm when things get busy.
+                </p>
+                <p className="text-zinc-400">
+                  I&apos;m always learning something new and happy to connect —
+                  feel free to reach out if you&apos;d like to chat or collaborate.
+                </p>
+              </div>
+
+              <a
+                href={cvDownloadHref}
+                download="Stylianos-Kalaitzis-CV.pdf"
+                className={outlineButtonClass}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
-              </svg>
-              Download CV (PDF)
-            </a>
+                <svg
+                  className="icon-sm"
+                  width={16}
+                  height={16}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  />
+                </svg>
+                Download my CV (PDF)
+              </a>
+            </div>
           </div>
         </div>
       </div>

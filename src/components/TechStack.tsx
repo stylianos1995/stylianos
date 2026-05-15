@@ -57,7 +57,7 @@ export default function TechStack() {
   return (
     <section
       id="tech-stack"
-      className="scroll-mt-24 border-b border-zinc-800/80 py-20 sm:py-24"
+      className="scroll-mt-24 border-b border-slate-700/40 py-20 sm:py-24"
       aria-labelledby="tech-stack-heading"
     >
       <div className="mb-12 max-w-2xl">
@@ -86,9 +86,9 @@ export default function TechStack() {
                 <li key={name}>
                   <div className={itemClass}>
                     <Icon
-                      className="h-8 w-8 text-zinc-300"
+                      className="icon-lg text-zinc-300"
+                      size={32}
                       aria-hidden
-                      title=""
                     />
                     <span className="text-sm font-medium text-zinc-200">
                       {name}

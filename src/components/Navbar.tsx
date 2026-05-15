@@ -17,7 +17,7 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-zinc-800/80 bg-zinc-950/90 backdrop-blur-md">
+    <header className="site-header fixed inset-x-0 top-0 z-50">
       <nav
         className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8"
         aria-label="Primary"
@@ -46,7 +46,9 @@ export default function Navbar() {
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           <svg
-            className="h-6 w-6"
+            className="icon-nav"
+            width={24}
+            height={24}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -74,7 +76,7 @@ export default function Navbar() {
       {isOpen && (
         <div
           id="mobile-menu"
-          className="border-b border-zinc-800 bg-zinc-950 px-4 py-3 md:hidden"
+          className="site-header-menu px-4 py-3 md:hidden"
         >
           <div className="flex flex-col gap-1">
             {menuItems.map((item) => (

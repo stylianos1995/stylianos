@@ -53,7 +53,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="scroll-mt-24 border-b border-zinc-800/80 py-20 sm:py-28"
+      className="scroll-mt-24 border-b border-slate-700/40 py-20 sm:py-28"
       aria-labelledby="projects-heading"
     >
       <div className="mb-12 max-w-2xl">
@@ -76,11 +76,12 @@ export default function Projects() {
         {projects.map((project) => (
           <li key={project.title}>
             <article className={cardClass}>
-              <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-zinc-800/80 bg-zinc-900">
+              <div className="image-frame image-frame--wide border-b border-zinc-800/80 bg-zinc-900">
                 <Image
                   src={project.imageUrl}
                   alt={`${project.title} preview`}
                   fill
+                  loading="lazy"
                   className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
@@ -109,7 +110,9 @@ export default function Projects() {
                     className={ghostBtn}
                   >
                     <svg
-                      className="h-4 w-4"
+                      className="icon-sm"
+                      width={16}
+                      height={16}
                       fill="currentColor"
                       viewBox="0 0 24 24"
                       aria-hidden

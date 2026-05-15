@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#09090b",
+  themeColor: "#0f1628",
 };
 
 const siteUrl =
@@ -22,10 +22,6 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Stylianos Kalaitzis — Web Developer",
-  icons: {
-    icon: [],
-    apple: [],
-  },
   description:
     "Web developer based in Maastricht, Netherlands. I build responsive web applications with React, JavaScript, Python, and modern frontend technologies.",
   keywords: [
@@ -76,7 +72,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`scroll-smooth dark ${inter.variable}`}>
       <body
-        className={`${inter.className} min-h-screen bg-zinc-950 text-zinc-100 antialiased`}
+        className={`${inter.className} min-h-screen text-zinc-100 antialiased`}
       >
         <a href="#main-content" className="skip-link">
           Skip to main content
