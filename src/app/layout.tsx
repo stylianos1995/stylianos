@@ -11,9 +11,21 @@ export const viewport: Viewport = {
   themeColor: "#09090b",
 };
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000");
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://stylianos1995.github.io/stylianos"),
+  metadataBase: new URL(siteUrl),
   title: "Stylianos Kalaitzis — Web Developer",
+  icons: {
+    icon: [],
+    apple: [],
+  },
   description:
     "Web developer based in Maastricht, Netherlands. I build responsive web applications with React, JavaScript, Python, and modern frontend technologies.",
   keywords: [
@@ -30,7 +42,7 @@ export const metadata: Metadata = {
     title: "Stylianos Kalaitzis — Web Developer",
     description:
       "Web developer based in Maastricht. Responsive applications with React, JavaScript, and modern frontend tooling.",
-    url: "https://stylianos1995.github.io/stylianos/",
+    url: siteUrl,
     siteName: "Stylianos Kalaitzis",
     images: [
       {

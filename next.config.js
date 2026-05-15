@@ -1,11 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "export",
-  basePath: process.env.NODE_ENV === "production" ? "/stylianos" : "",
-  assetPrefix: process.env.NODE_ENV === "production" ? "/stylianos/" : "",
   trailingSlash: true,
   images: {
-    unoptimized: true,
+    remotePatterns: [],
   },
   webpack: (config) => {
     config.module.rules.push({
