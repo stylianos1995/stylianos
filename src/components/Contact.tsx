@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
+import emailjs, { type EmailJSResponseStatus } from "@emailjs/browser";
 import { outlineButtonClass } from "@/lib/button-styles";
 
 const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
@@ -61,7 +61,7 @@ export default function Contact() {
     });
 
     try {
-      const result = await emailjs.send(
+      const result = (await emailjs.send(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         {
@@ -70,8 +70,11 @@ export default function Contact() {
           message: formData.message,
           time: new Date().toLocaleString(),
           reply_to: formData.email,
+        },
+        {
+          publicKey: EMAILJS_PUBLIC_KEY,
         }
-      );
+      )) as EmailJSResponseStatus;
 
       if (result.status === 200) {
         setStatus({
@@ -84,12 +87,20 @@ export default function Contact() {
       } else {
         throw new Error("Failed to send email");
       }
-    } catch {
+    } catch (error: unknown) {
+      const errorMessage =
+        typeof error === "object" &&
+        error !== null &&
+        "text" in error &&
+        typeof (error as { text?: unknown }).text === "string"
+          ? (error as { text: string }).text
+          : "Failed to send message. Please try again later.";
+
       setStatus({
         submitting: false,
         submitted: false,
         error: true,
-        errorMessage: "Failed to send message. Please try again later.",
+        errorMessage,
       });
     }
   };
