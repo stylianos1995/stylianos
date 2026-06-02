@@ -4,7 +4,13 @@ import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { outlineButtonClass } from "@/lib/button-styles";
 
-emailjs.init("CtJ1AzouyQuN-xkuv");
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+
+if (EMAILJS_PUBLIC_KEY) {
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+}
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -35,6 +41,18 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!EMAILJS_PUBLIC_KEY || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID) {
+      setStatus({
+        submitting: false,
+        submitted: false,
+        error: true,
+        errorMessage:
+          "Contact form is not configured yet. Please try again later or email me directly.",
+      });
+      return;
+    }
+
     setStatus({
       submitting: true,
       submitted: false,
@@ -44,8 +62,8 @@ export default function Contact() {
 
     try {
       const result = await emailjs.send(
-        "service_victnd5",
-        "template_x7cn9fe",
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         {
           name: formData.name,
           email: formData.email,
