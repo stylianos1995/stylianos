@@ -22,6 +22,15 @@ const solidBtn =
 export default function Projects() {
   const projects: Project[] = [
     {
+      title: "Stellas Travel Agency",
+      description:
+        "Travel agency site with packages and ticket requests, bilingual navigation (Greek/English), and a personal About section for a long-established local business.",
+      technologies: ["Next.js", "React", "Responsive UI", "i18n"],
+      liveUrl: "https://www.stellastravel.com",
+      githubUrl: "https://github.com/stylianos1995",
+      imageUrl: publicAsset("/images/projects/stellas-travel.png"),
+    },
+    {
       title: "Portofino Digital Menu",
       description:
         "Built a responsive, QR-driven menu experience with multilingual content and reliable performance across phones and tablets.",
