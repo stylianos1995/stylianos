@@ -1,5 +1,4 @@
 import Hero from "@/components/Hero";
-import { About } from "@/components/About";
 import TechStack from "@/components/TechStack";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
@@ -11,7 +10,6 @@ export default function Home() {
       <Navbar />
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <Hero />
-        <About />
         <Projects />
         <TechStack />
         <Contact />

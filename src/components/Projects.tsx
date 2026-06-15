@@ -22,6 +22,15 @@ const solidBtn =
 export default function Projects() {
   const projects: Project[] = [
     {
+      title: "Venia's Portfolio",
+      description:
+        "Professional portfolio for a biologist and neuroscience researcher, with About, Experience, Research, and Contact sections plus resume download.",
+      technologies: ["Next.js", "React", "Tailwind CSS", "Responsive UI"],
+      liveUrl: "https://venia-green.vercel.app",
+      githubUrl: "https://github.com/stylianos1995",
+      imageUrl: publicAsset("/images/projects/venia.png"),
+    },
+    {
       title: "Stellas Travel Agency",
       description:
         "Travel agency site with packages and ticket requests, bilingual navigation (Greek/English), and a personal About section for a long-established local business.",

@@ -10,7 +10,6 @@ export default function Navbar() {
 
   const menuItems = [
     { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
     { href: "#projects", label: "Projects" },
     { href: "#tech-stack", label: "Tech Stack" },
     { href: "#contact", label: "Contact" },
